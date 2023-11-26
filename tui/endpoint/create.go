@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/onpremless/cli/tui/lambda"
 	api "github.com/onpremless/go-client"
+	"github.com/onpremless/opcli/tui/lambda"
 
 	"github.com/charmbracelet/bubbles/cursor"
 	"github.com/charmbracelet/bubbles/list"

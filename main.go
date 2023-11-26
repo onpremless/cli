@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/onpremless/cli/cmd"
+	"github.com/onpremless/opcli/cmd"
 )
 
 func main() {

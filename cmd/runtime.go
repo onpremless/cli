@@ -5,8 +5,8 @@ import (
 	"fmt"
 
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/onpremless/cli/ops"
-	"github.com/onpremless/cli/tui/runtime"
+	"github.com/onpremless/opcli/ops"
+	"github.com/onpremless/opcli/tui/runtime"
 	"github.com/spf13/cobra"
 )
 

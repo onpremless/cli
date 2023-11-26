@@ -1,4 +1,4 @@
-module github.com/onpremless/cli
+module github.com/onpremless/opcli
 
 go 1.21
 

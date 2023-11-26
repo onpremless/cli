@@ -6,9 +6,9 @@ import (
 	"os"
 
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/onpremless/cli/ops"
-	"github.com/onpremless/cli/tui/endpoint"
 	api "github.com/onpremless/go-client"
+	"github.com/onpremless/opcli/ops"
+	"github.com/onpremless/opcli/tui/endpoint"
 	"github.com/spf13/cobra"
 )
 
