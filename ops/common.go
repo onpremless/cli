@@ -79,7 +79,6 @@ func tarPath(src string) (string, error) {
 
 	var buffer bytes.Buffer
 	writer := tar.NewWriter(&buffer)
-	pathLen := len(src)
 
 	err := filepath.Walk(src, func(file string, info os.FileInfo, lerr error) error {
 		header, err := tar.FileInfoHeader(info, file)
@@ -87,7 +86,7 @@ func tarPath(src string) (string, error) {
 			return err
 		}
 
-		header.Name = filepath.ToSlash(file)[pathLen:]
+		header.Name = filepath.Base(file)
 
 		if err := writer.WriteHeader(header); err != nil {
 			return err
