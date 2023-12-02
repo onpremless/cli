@@ -8,6 +8,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 
 	api "github.com/onpremless/go-client"
@@ -77,16 +78,27 @@ func tarPath(src string) (string, error) {
 		return "", fmt.Errorf("path does not exist: %s", src)
 	}
 
+	src, err := filepath.Abs(src)
+	if err != nil {
+		return "", err
+	}
+
+	if !strings.HasSuffix(src, "/") {
+		src += "/"
+	}
+
+	lsrc := len(src)
+
 	var buffer bytes.Buffer
 	writer := tar.NewWriter(&buffer)
 
-	err := filepath.Walk(src, func(file string, info os.FileInfo, lerr error) error {
+	err = filepath.Walk(src, func(file string, info os.FileInfo, lerr error) error {
 		header, err := tar.FileInfoHeader(info, file)
 		if err != nil {
 			return err
 		}
 
-		header.Name = filepath.ToSlash(file)
+		header.Name = filepath.ToSlash(file)[lsrc:]
 
 		if err := writer.WriteHeader(header); err != nil {
 			return err
