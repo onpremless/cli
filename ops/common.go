@@ -86,7 +86,7 @@ func tarPath(src string) (string, error) {
 			return err
 		}
 
-		header.Name = filepath.Base(file)
+		header.Name = filepath.ToSlash(file)
 
 		if err := writer.WriteHeader(header); err != nil {
 			return err
